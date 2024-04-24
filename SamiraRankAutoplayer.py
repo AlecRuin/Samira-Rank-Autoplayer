@@ -49,8 +49,8 @@ def SongFinishedDelegate(KeyValue):
 
 thread=None
 def Playback(Priority,SongPath):
-    winsound.PlaySound(SongPath,winsound.SND_ASYNC)
-    aud_file= wave.open(SongPath,"rb")
+    winsound.PlaySound(resource_path("sounds/"+SongPath),winsound.SND_ASYNC)
+    aud_file= wave.open(resource_path("sounds/"+SongPath),"rb")
     duration = aud_file.getnframes()/aud_file.getframerate()
     print(f'duration: {duration}')
     time.sleep(duration)
@@ -58,8 +58,6 @@ def Playback(Priority,SongPath):
     thread=None
 
 def PlaySong(KeyValue):
-    #print(f'Keyvalue: {KeyValue}')
-    #print(f'SortedScansArray: {SortedScansArray}')
     #iterate over all possible scans
     flag=False
     for item in SortedScansArray:
@@ -91,7 +89,7 @@ while True:
                 TopPixel = config["TopPixelOffset"]
                 PixelDimensions = config["PixelDimensions"]
                 try:
-                    ScannedLocation = pyautogui.locateOnScreen(SortedScansArray[x]["ScanImagePath"], confidence=Confidence, region=(LeftPixel,TopPixel,PixelDimensions,PixelDimensions))
+                    ScannedLocation = pyautogui.locateOnScreen(resource_path("imagescans/"+SortedScansArray[x]["ScanImagePath"]), confidence=Confidence, region=(LeftPixel,TopPixel,PixelDimensions,PixelDimensions))
                     if ScannedLocation:
                         #found image
                         print("Playing song...")
@@ -107,6 +105,3 @@ while True:
                     PlaySong(SortedScansArray[0])
     print("scanning again...")
     time.sleep(config["Heartbeat"])
-#for name,value in config.items():
-#    print(name,value)
-
