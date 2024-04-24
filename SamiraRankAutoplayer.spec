@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['SamiraRankAutoPlayer.py'],
+    ['SamiraRankAutoplayer.py'],
     pathex=[],
     binaries=[],
     datas=[("imagescans/*","imagescans"),("sounds/*","sounds"),("config.json",".")],
@@ -21,7 +21,7 @@ exe = EXE(
     a.scripts,
     [],
     exclude_binaries=True,
-    name='SamiraRankAutoPlayer',
+    name='SamiraRankAutoplayer',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
@@ -40,5 +40,5 @@ coll = COLLECT(
     strip=False,
     upx=True,
     upx_exclude=[],
-    name='SamiraRankAutoPlayer',
+    name='SamiraRankAutoplayer',
 )
