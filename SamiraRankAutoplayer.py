@@ -16,7 +16,7 @@ def resource_path(relative_path):
     return os.path.join(base_path, relative_path)
 
 try:
-    with open(resource_path("dtconfig.json")) as f:
+    with open(resource_path("config.json")) as f:
         config = json.load(f)
 except FileNotFoundError:
     print("Missing Config")
