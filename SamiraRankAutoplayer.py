@@ -28,7 +28,7 @@ SortedScansArray=[]
 for KeyName in config["Scans"]:
     LocalValue = KeyName["Priority"]
     Instance=0
-    if KeyName["Priority"]>len(SortedScansArray):
+    if KeyName["Priority"]>=len(SortedScansArray):
         SortedScansArray.extend([None]*(KeyName["Priority"]-len(SortedScansArray)+1))
     SortedScansArray[KeyName["Priority"]]=KeyName
     SortedScansArray[KeyName["Priority"]]["Active"]=False
