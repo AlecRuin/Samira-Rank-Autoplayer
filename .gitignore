@@ -1,5 +1,4 @@
 *.wav
-*/*.wav
 *.png
 build
 dist
